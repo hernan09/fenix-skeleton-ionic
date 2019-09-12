@@ -1,5 +1,7 @@
 {
   "name": "skeleton",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

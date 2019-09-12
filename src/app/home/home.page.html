@@ -1,14 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header color="danger">
+ <div class="header">
+  
+ </div>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content >
+  <div class="subcaja">
+    <img id="fenix" src="../../assets/fenix.png" alt="">
   </div>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  <ion-list padding>
+    <ion-item *ngFor="let item of items">
+        <ion-thumbnail slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+          <ion-label>{{item.name}}</ion-label>
+      <ion-button slot="end" color="danger">Send  <ion-icon name="send"></ion-icon></ion-button>
+    </ion-item>
+    <div *ngIf="!items">
+      <!--aca aclaro otro array de la misma longitud ya qeu el otro todavia no se ejecuta-->
+      <ion-item *ngFor="let item of [1,2,3,4,5,6]">
+          <ion-skeleton-text animated style="width: 60px; height: 60px" slot="start"></ion-skeleton-text>
+         <ion-label>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+         </ion-label>
+         <ion-skeleton-text animated style="width: 27px; height: 27px" slot="end"></ion-skeleton-text>
+      </ion-item>
+    </div>
+  </ion-list>
+  
 </ion-content>
+<div class="footer">
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" >
+        <ion-fab-button color="light">
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button color="primary"><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="bottom">
+          <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+          <ion-fab-button color="danger"><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="end">
+          <ion-fab-button color="secondary"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+ 
+</div>
+
